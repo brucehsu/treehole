@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'slim'
 require 'sass'
+require 'json'
+require 'coffee_script'
 
 $LOAD_PATH << '.'
 require 'db'
@@ -23,8 +25,20 @@ get '/category/:name' do
   slim :index
 end
 
+post '/create/category' do
+  content_type :json
+  @category = Category.new(:name=>params[:name])
+  if @category.save
+    {:success=>true, :name=>@category.name}.to_json
+  else
+    {:success=>false}.to_json
+  end
+end
+
 get '/stylesheet.css' do
   sass :stylesheet
 end
 
-
+get '/treehole.js' do
+  coffee :treehole
+end

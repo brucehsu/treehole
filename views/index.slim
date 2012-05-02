@@ -2,6 +2,8 @@ html
   head
     title treehole - #{@title}
     link rel="stylesheet" type="text/css" href="/stylesheet.css"
+    script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+    script type="text/javascript" src="/treehole.js"
   body
     div id="container"
       div id="main"
@@ -17,3 +19,6 @@ html
           - for category in @categories
             a href="/category/#{category.name}" #{category.name}
             br
+          form id="add_category"
+            input type="text" name="name" id="add_cat_name"
+            input type="submit" value="Add"
