@@ -1,7 +1,7 @@
 html
   head
-    title treehole - index
-    link rel="stylesheet" type="text/css" href="stylesheet.css"
+    title treehole - #{@title}
+    link rel="stylesheet" type="text/css" href="/stylesheet.css"
   body
     div id="container"
       div id="main"
@@ -14,3 +14,6 @@ html
               p #{post.content}
         div id="categories"
           h3 Categories
+          - for category in @categories
+            a href="/category/#{category.name}" #{category.name}
+            br
