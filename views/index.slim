@@ -6,6 +6,11 @@ html
     div id="container"
       div id="main"
         div id="content"
-          h3 Articles
+          h3 Posts
+          - for post in @posts
+            div id="post"
+              h4 #{post.title}
+              hr
+              p #{post.content}
         div id="categories"
           h3 Categories

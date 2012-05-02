@@ -6,6 +6,7 @@ $LOAD_PATH << '.'
 require 'db'
 
 get '/' do
+  @posts = Post.all
   slim :index
 end
 

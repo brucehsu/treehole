@@ -1,7 +1,10 @@
 require 'data_mapper'
 
-DataMapper.setup(:default, 'sqlite::memory:')
-#DataMapper.setup(:default, 'sqlite:///path/to/database.db')
+# DataMapper.setup(:default, 'sqlite::memory:')
+# This would not work, please refer to:
+# http://stackoverflow.com/questions/6904298/
+
+DataMapper.setup(:default, "sqlite://#{Dir.pwd}/database.db")
 
 class Post
   include DataMapper::Resource

@@ -1,8 +1,13 @@
 $width: 770px
+$radius: 15px
 
 @mixin inner
     display: inline-block
     border: 1px solid
+@mixin radius
+    border-radius: $radius
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
 
 #container
     width: $width
@@ -17,6 +22,24 @@ $width: 770px
 #content
     @include inner
     width: 500px
+    align: center
+
+#post
+    @include radius
+    display: block
+    width: 480px
+    border: 1px solid
+    margin: 5px
+    margin-left: 10px
+    margin-right: 10px
+    h4
+        margin-left: 6px
+    p
+        margin-left: 12px
+
+#form
+    display: block
+    width: 480px
 
 #categories
     @include inner
