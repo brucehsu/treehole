@@ -1,0 +1,27 @@
+$width: 770px
+
+@mixin inner
+    display: inline-block
+    border: 1px solid
+
+#container
+    width: $width
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+#main
+    display: inline-block
+    width: $width
+
+#content
+    @include inner
+    width: 500px
+
+#categories
+    @include inner
+    float: right
+    width: 250px
+
+h3
+    text-align: center
