@@ -20,7 +20,7 @@ jQuery ($) ->
             data: $('#add_post').serialize()
             success: (data) ->
                 if data['success']
-                    $('<div id="post"><h4>' + data['title'] + '</h4><hr /><p>' + data['content'] + '</p>').insertAfter($('#post_form')).hide().fadeIn(1500)
+                    $('<div id="post"><h4>' + data['title'] + '</h4><div id="created_at">in <a href="/category/' + data['category'] + '">' + data['category'] + '</a>, ' + data['created_at'] + '</div><hr /><p>' + data['content'] + '</p>').insertAfter($('#post_form')).hide().fadeIn(1500)
                     $('#add_post_title').val('')
                     $('#add_post_content').val('')
                 else

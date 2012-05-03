@@ -22,8 +22,12 @@ html
           - for post in @posts
             div id="post"
               h4 #{post.title}
+              div id="created_at" 
+                | in 
+                a href="/category/#{post.category.name}" #{post.category.name}
+                | , #{post.created_at.strftime('%Y/%m/%d %H:%M')}
               hr
-              p #{post.content}
+              p #{{post.content}}
         div id="categories"
           h3 Categories
           - for category in @categories
