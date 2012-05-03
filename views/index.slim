@@ -9,6 +9,16 @@ html
       div id="main"
         div id="content"
           h3 Posts
+          div id="post_form"
+            form id="add_post"
+              input type="text" name="title" id="add_post_title"
+              br
+              textarea rows="20" cols="20" name="content" id="add_post_content"
+              br
+              select name="category" id="add_post_cat"
+                - for category in @categories
+                  option value="#{category.name}" #{category.name}
+              input type="submit" value="Post"
           - for post in @posts
             div id="post"
               h4 #{post.title}

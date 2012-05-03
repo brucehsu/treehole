@@ -35,6 +35,20 @@ post '/create/category' do
   end
 end
 
+post '/create/post' do
+  content_type :json
+  @post = Post.new
+  @post.title = params[:title]
+  @post.content = params[:content]
+  @post.created_at = Time.now
+  @post.category_id = Category.first(:name=>params[:category]).id
+  if @post.save
+    {:success=>true, :title=>@post.title, :content=>@post.content}.to_json
+  else
+    {:success=>false}.to_json
+  end
+end
+
 get '/stylesheet.css' do
   sass :stylesheet
 end
