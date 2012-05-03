@@ -24,4 +24,5 @@ class Category
   property :name, String, :unique => true
 end
 
+DataMapper.auto_upgrade!
 DataMapper.finalize
