@@ -9,6 +9,7 @@ jQuery ($) ->
                 if data['success']
                     $('<a href="/category/' + data['name'] + '">' + data['name'] + '</a><br />').insertBefore($('#add_category')).hide().fadeIn()
                     $('#add_cat_name').val('')
+                    $('#add_post select').append('<option value="' + data['name'] + '">' + data['name'] + '</option>')
                 else
                     alert('Failed')
 
