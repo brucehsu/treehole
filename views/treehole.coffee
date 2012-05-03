@@ -7,7 +7,7 @@ jQuery ($) ->
             data: $('#add_category').serialize()
             success: (data) ->
                 if data['success']
-                    $('<a href="/category/' + data['name'] + '">' + data['name'] + '</a><br />').insertBefore($('#add_category'))
+                    $('<a href="/category/' + data['name'] + '">' + data['name'] + '</a><br />').insertBefore($('#add_category')).hide().fadeIn()
                     $('#add_cat_name').val('')
                 else
                     alert('Failed')
