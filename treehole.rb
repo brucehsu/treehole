@@ -10,7 +10,7 @@ require 'db'
 set :slim, :pretty => true
 
 get '/' do
-  @posts = Post.all
+  @posts = Post.all(:order=>[:created_at.desc])
   @categories = Category.all
   @title = 'index'
   slim :index
@@ -19,7 +19,7 @@ end
 get '/category/:name' do
   @category = Category.first(:name=>params[:name])
   redirect '/' if @category == nil
-  @posts = Post.all(:category_id => @category.id)
+  @posts = Post.all(:category_id => @category.id, :order=>[:created_at.desc])
   @categories = Category.all
   @title = params[:name]
   slim :index
