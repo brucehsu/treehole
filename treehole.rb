@@ -44,10 +44,21 @@ post '/create/post' do
   @post.category_id = Category.first(:name=>params[:category]).id
   if @post.save
     {:success=>true, 
+     :id=>@post.id,
      :title=>@post.title,
      :content=>@post.content,
      :created_at=>@post.created_at.strftime('%Y/%m/%d %H:%M'),
      :category=>@post.category.name}.to_json
+  else
+    {:success=>false}.to_json
+  end
+end
+
+delete '/delete/post/:id' do
+  content_type :json
+  @post = Post.first(:id=>params[:id])
+  if @post.destroy
+    {:success=>true}.to_json
   else
     {:success=>false}.to_json
   end
